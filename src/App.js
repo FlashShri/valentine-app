@@ -98,17 +98,25 @@ function App() {
             Yes! 💕
           </button>
 
-          <button
-            className="no-button"
-            style={{
-              fontSize: `${getNoButtonSize() * 0.16}px`,
-              padding: `${getNoButtonSize() * 0.12}px ${getNoButtonSize() * 0.24}px`,
-            }}
-            onClick={handleNoClick}
-          >
-            No
-          </button>
+          {getYesButtonSize() < 500 && (
+            <button
+              className="no-button"
+              style={{
+                fontSize: `${getNoButtonSize() * 0.16}px`,
+                padding: `${getNoButtonSize() * 0.12}px ${getNoButtonSize() * 0.24}px`,
+              }}
+              onClick={handleNoClick}
+            >
+              No
+            </button>
+          )}
         </div>
+
+        {getYesButtonSize() >= 500 && (
+          <p className="message-text">
+            The "No" button gave up! There's only one choice now! 💕
+          </p>
+        )}
 
         {noCount > 0 && <p className="message-text">{getNoMessage()}</p>}
       </div>
